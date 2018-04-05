@@ -11,6 +11,21 @@ namespace TestSort
 {
     class TestSort
     {
+        static void PickArray(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write("Enter a number: ");
+                string input = Console.ReadLine();
+                if (!int.TryParse(input, out array[i]))
+                {
+                    // Tell the user something went wrong:
+                    Console.WriteLine("Sorry, '{0}' is not a valid number.", input);
+                    // Don't move to the next array element:
+                    i--;
+                }
+            }
+        }
         static void sort(int[] arr)
         {
             int n = arr.Length;
@@ -40,8 +55,12 @@ namespace TestSort
         // Driver code 
         public static void Main()
         {
-            int[] arr = { 64, 25, 12, 22, 11 };
+            Console.WriteLine("Pick an array size between 1 and 1,000");
+            
+            int[] arr = {0};
+            PickArray(arr);
             sort(arr);
+
             Console.WriteLine("Sorted array");
             printArray(arr);
 
