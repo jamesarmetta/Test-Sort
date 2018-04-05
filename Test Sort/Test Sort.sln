@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test Sort", "Test Sort\Test Sort.csproj", "{99F1FD80-B7DC-4518-B9C3-58DF7DB72994}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSort", "Test Sort\TestSort.csproj", "{99F1FD80-B7DC-4518-B9C3-58DF7DB72994}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
