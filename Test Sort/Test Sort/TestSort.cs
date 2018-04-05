@@ -57,30 +57,24 @@ namespace TestSort
         {
             Console.WriteLine("Pick an array size between 1 and 1,000");
             
-            int[] arr = {0};
+            int[] arr = { 0 };
             PickArray(arr);
             sort(arr);
-
             Console.WriteLine("Sorted array");
             printArray(arr);
 
-
-            ConsoleKeyInfo keyinfo;
-            do
-            {
-                keyinfo = Console.ReadKey();
-                Console.WriteLine(keyinfo.Key + " was pressed");
-            }
-            while (keyinfo.Key != ConsoleKey.X);
-            /*
             Console.WriteLine("1. Selection Sort");
             Console.WriteLine("2. Exit");
-            if ()
-            {
 
+            while (Console.ReadKey().Key == ConsoleKey.NumPad1)
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine("Selection Sort");
             }
-            Console.ReadLine();
-            */
+            while (Console.ReadKey().Key != ConsoleKey.NumPad2)
+            {
+                Console.WriteLine("Exit");
+            }           
         }
     }
 }
