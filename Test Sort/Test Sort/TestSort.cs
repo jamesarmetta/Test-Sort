@@ -42,5 +42,6 @@ class TestSort
         sort(arr);
         Console.WriteLine("Sorted array");
         printArray(arr);
+        Console.ReadKey(true);
     }
 }
