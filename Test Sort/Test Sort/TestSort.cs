@@ -1,51 +1,57 @@
 ﻿/*
  * James Armetta
  * 1009459
- * 4/9/18 
+ * 4/9/18
  * CSCI-335
  * Test Sort
  */
+
 using System;
 
 namespace TestSort
 {
-    class TestSort
+    internal class TestSort
     {
-        static void PickArray(int[] array) //User input for the array size
+        //public static int GetIntFromUser(int minVal, int maxVal);
+        //public static int[] GetRandomizedArray(int size, int minRndVal, int maxRndVal);
+        //int[] randomValues = GetRandomizedArray(GetIntFromUser(1, 1000), 1, 1000);
+        private static void PickArray(int[] array) //User input for the array size
         {
+            Console.Write("Enter array size: ");
             int n;
             string input = Console.ReadLine();
+
             while (!int.TryParse(input, out n) || n < 1 || n > 1000)
             {
                 Console.WriteLine("Ivalid input.");
                 input = Console.ReadLine();
-            }        
+            }
             int[] newArray = new int[n];
             var rand = new Random();
             for (int i = 0; i < n; i++)
             {
                 newArray[i] = rand.Next(1, 1000);
-            }           
-        }
-       /* 
-        static void PickArray(int[] array) //User input for the array size
-        {           
-            int[] newArray = new int[n];
-            for (int i = 0; i < array.Length; i++)
-            {
-                Console.Write("Enter array size: ");
-                string input = Console.ReadLine();
-                if (!int.TryParse(input, out array[i]))
-                {
-                    // Tell the user something went wrong:
-                    Console.WriteLine("Sorry, '{0}' is not a valid number.", input);
-                    // Don't move to the next array element:
-                    i--;
-                }
             }
         }
-        */
-        static void Sort(int[] arr) //Sorts array using selection sort
+        /*
+         static void PickArray(int[] array) //User input for the array size
+         {
+             int[] newArray = new int[n];
+             for (int i = 0; i < array.Length; i++)
+             {
+                 Console.Write("Enter array size: ");
+                 string input = Console.ReadLine();
+                 if (!int.TryParse(input, out array[i]))
+                 {
+                     // Tell the user something went wrong:
+                     Console.WriteLine("Sorry, '{0}' is not a valid number.", input);
+                     // Don't move to the next array element:
+                     i--;
+                 }
+             }
+         }
+         */
+        private static void Sort(int[] arr) //Sorts array using selection sort
         {
             int n = arr.Length;
             // One by one move boundary of unsorted subarray
@@ -63,15 +69,17 @@ namespace TestSort
                 arr[i] = temp;
             }
         }
+
         // Prints the array
-        static void printArray(int[] arr)
+        private static void printArray(int[] arr)
         {
             int n = arr.Length;
             for (int i = 0; i < n; ++i)
                 Console.Write(arr[i] + " ");
             Console.WriteLine();
         }
-        // Driver code 
+        // Driver code
+        /*
         public static void Main()
         {
             Console.WriteLine("Pick an array size between 1 and 1,000");
@@ -85,13 +93,13 @@ namespace TestSort
 
             int[] arr = new int[1000];
             //int[] arr = new int[1000];
-/*
+
             Random randNum = new Random();
             for (int i = 0; i < arr.Length; i++)
             {
-                arr[i] = randNum.Next(Min, Max);              
+                arr[i] = randNum.Next(Min, Max);
             }
-*/
+
             //int[] arr = { 0,0,0 };
             PickArray(arr);
             Sort(arr);
@@ -105,13 +113,12 @@ namespace TestSort
             {
                 Console.WriteLine(" ");
                 Console.WriteLine("Selection Sort");
-
-                
             }
             else if (Console.ReadKey().Key != ConsoleKey.NumPad2) //what happens when 2 is pressed
             {
                 Console.WriteLine("Exit");
-            }           
+            }
         }
+        */
     }
 }

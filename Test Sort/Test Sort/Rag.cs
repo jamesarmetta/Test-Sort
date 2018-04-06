@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TestSort
+﻿namespace TestSort
 {
-    class Rag
+    internal class Rag
     {
         private readonly Rng _rng;
 

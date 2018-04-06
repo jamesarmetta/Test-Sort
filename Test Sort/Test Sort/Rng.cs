@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TestSort
 {
-    class Rng
+    internal class Rng
     {
         private readonly Random _random;
         private int? last;
 
-        public int Min { get; set; } 
-        public int Max { get; set; } 
+        public int Min { get; set; }
+        public int Max { get; set; }
 
         public Rng(int min, int max)
         {
