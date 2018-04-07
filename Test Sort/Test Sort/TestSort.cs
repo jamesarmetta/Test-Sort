@@ -5,7 +5,6 @@
  * CSCI-335
  * Test Sort
  */
-
 using System;
 
 namespace TestSort
@@ -15,7 +14,7 @@ namespace TestSort
         //public static int GetIntFromUser(int minVal, int maxVal);
         //public static int[] GetRandomizedArray(int size, int minRndVal, int maxRndVal);
         //int[] randomValues = GetRandomizedArray(GetIntFromUser(1, 1000), 1, 1000);
-        private static void PickArray(int[] array) //User input for the array size
+        public static void ArraySize(int[] array) //User input for the array size
         {
             Console.Write("Enter array size: ");
             int n;
@@ -32,6 +31,14 @@ namespace TestSort
             {
                 newArray[i] = rand.Next(1, 1000);
             }
+            Console.WriteLine("The Array Before Selection Sort is: ");
+            Console.WriteLine(" ");
+            for (int i = 0; i < array.Length; ++i)
+            {
+                Console.Write(array[i] + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
         }
         /*
          static void PickArray(int[] array) //User input for the array size
@@ -51,8 +58,10 @@ namespace TestSort
              }
          }
          */
-        private static void Sort(int[] arr) //Sorts array using selection sort
+        public static void Sort(int[] arr) //Sorts array using selection sort
         {
+            Console.WriteLine("The Array After Selection Sort is: ");
+            Console.WriteLine();
             int n = arr.Length;
             // One by one move boundary of unsorted subarray
             for (int i = 0; i < n - 1; i++)
@@ -69,9 +78,13 @@ namespace TestSort
                 arr[i] = temp;
             }
         }
+        // Prints the original array
+        public static void printArray(int[] arr)
+        {
 
-        // Prints the array
-        private static void printArray(int[] arr)
+        }
+        // Prints the sorted array
+        public static void printSorted(int[] arr)
         {
             int n = arr.Length;
             for (int i = 0; i < n; ++i)
@@ -79,46 +92,41 @@ namespace TestSort
             Console.WriteLine();
         }
         // Driver code
-        /*
         public static void Main()
-        {
-            Console.WriteLine("Pick an array size between 1 and 1,000");
-
-            //int Min = 1;
-            //int Max = 1000;
-
-            // this declares an integer array with 5 elements
-            // and initializes all of them to their default value
-            // which is zero
-
-            int[] arr = new int[1000];
-            //int[] arr = new int[1000];
-
-            Random randNum = new Random();
-            for (int i = 0; i < arr.Length; i++)
+        {          
+            do
             {
-                arr[i] = randNum.Next(Min, Max);
-            }
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------");
+                Console.WriteLine("1. Selection Sort"); //Let user input another array
+                Console.WriteLine("2. Exit"); //Exit Program
 
-            //int[] arr = { 0,0,0 };
-            PickArray(arr);
-            Sort(arr);
-            Console.WriteLine("Sorted array");
-            printArray(arr);
+                if (Console.ReadKey().Key == ConsoleKey.NumPad1) //what happens when 1 is pressed
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Selection Sort");
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Pick an array size between 1 and 1,000");
 
-            Console.WriteLine("1. Selection Sort"); //Let user input another array
-            Console.WriteLine("2. Exit"); //Exit Program
+                    int Min = 1;
+                    int Max = 200;
 
-            if(Console.ReadKey().Key == ConsoleKey.NumPad1) //what happens when 1 is pressed
-            {
-                Console.WriteLine(" ");
-                Console.WriteLine("Selection Sort");
-            }
-            else if (Console.ReadKey().Key != ConsoleKey.NumPad2) //what happens when 2 is pressed
-            {
-                Console.WriteLine("Exit");
-            }
+                    int[] arr = new int[100];
+
+                    Random randNum = new Random();
+                    for (int i = 0; i < arr.Length; i++)
+                    {
+                        arr[i] = randNum.Next(Min, Max);
+                    }
+                    ArraySize(arr);
+                    Sort(arr);
+                    
+                    printSorted(arr);
+                }
+                else if (Console.ReadKey().Key != ConsoleKey.NumPad2) //what happens when 2 is pressed
+                {
+                    Console.WriteLine("Exit");
+                }
+            } while (true);
         }
-        */
     }
 }

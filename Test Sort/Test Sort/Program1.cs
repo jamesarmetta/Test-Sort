@@ -6,7 +6,8 @@ using static System.Console;
 namespace TestSort
 { 
         class Program
-        {
+        {       
+            /*
             static void Main(string[] args)
             {
                 // prompt user to ask how many test scores to build the size of the array
@@ -30,13 +31,11 @@ namespace TestSort
                     }
                     testScores[i] = score;
                 }
-
                 WriteLine();
                 // create loop to display all test scores
                 for (int i = 0; i < testScores.Length; ++i)
                     WriteLine($"Your score for test {i + 1} is {testScores[i]}");
-
-
             }
+            */
         }
 }
