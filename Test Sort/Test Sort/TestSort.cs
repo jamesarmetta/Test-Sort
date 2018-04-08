@@ -11,6 +11,12 @@ namespace TestSort
 {
     internal class TestSort
     {
+        private int numberOfSorts = 1;
+        private int numberOfPreformedSorts = 0;
+        private int sizeTestArray = 0;
+        private int success = 1;
+        private int failure = 1;
+
         //public static int GetIntFromUser(int minVal, int maxVal);
         //public static int[] GetRandomizedArray(int size, int minRndVal, int maxRndVal);
         //int[] randomValues = GetRandomizedArray(GetIntFromUser(1, 1000), 1, 1000);
