@@ -32,7 +32,7 @@ namespace TestSort
             Console.WriteLine(" ");
             for (int i = 0; i < array.Length; ++i) //prints the array in current method
             {
-                Console.Write(array[i] + " ");
+                Console.Write(array[i] + "-");
             }
             Console.WriteLine();
             Console.WriteLine();
@@ -40,6 +40,7 @@ namespace TestSort
         public static void SelectionSort(int[] arr) //Sorts array using selection sort
         {
             int numberOfSorts = 1;
+            int swapIntegers = 0;
 
             Console.WriteLine("> Here is the sorted array: ");
             int n = arr.Length;
@@ -56,12 +57,13 @@ namespace TestSort
                 arr[min_idx] = arr[i];
                 arr[i] = temp;
                 numberOfSorts++;
+                swapIntegers++;
             }
             Console.WriteLine("Total Number of Swaps: " + numberOfSorts);
             Console.WriteLine();
             for (int i = 0; i < n; ++i) //prints the array in current method
             {
-                Console.Write(arr[i] + " ");
+                Console.Write(arr[i] + "-");
             }               
             Console.WriteLine();
         }
@@ -70,7 +72,7 @@ namespace TestSort
         {
             int numberOfPreformedSorts = 0;
             int success = 0;
-            int failure = 0;
+            int failure = 0;            
 
             do //loop for program to work
             {
@@ -80,15 +82,14 @@ namespace TestSort
 
                 if (Console.ReadKey().Key == ConsoleKey.NumPad1) //what happens when 1 is pressed
                 {
+                    Console.WriteLine(": Selection Sort");
                     Console.WriteLine();
-                    Console.WriteLine("Selection Sort");
-                    Console.WriteLine(" ");
                     Console.WriteLine("Pick an array size between 1 and 1,000");
 
                     int Min = 1;
                     int Max = 1000;
 
-                    int[] arr = new int[10];
+                    int[] arr = new int[1000];
 
                     Random randNum = new Random();
                     for (int i = 0; i < arr.Length; i++)
@@ -97,6 +98,7 @@ namespace TestSort
                     }
                     sizeTestArray(arr);
                     SelectionSort(arr);
+
                     if (arr == null) //checks if program ran correclty
                     {
                         failure++;
@@ -112,7 +114,6 @@ namespace TestSort
                     }
                     numberOfPreformedSorts++;
                     Console.WriteLine("Number of Sorts Preformed: " + numberOfPreformedSorts);
-
                 }
                 else if (Console.ReadKey().Key != ConsoleKey.NumPad2) //what happens when 2 is pressed
                 {
