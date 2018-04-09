@@ -11,9 +11,6 @@ namespace TestSort
 {
     internal class TestSort
     {      
-        public int success = 1;
-        public int failure = 1;
-
         public static void sizeTestArray(int[] array) //User input for the array size
         {
             Console.Write("Enter array size: ");
@@ -31,9 +28,9 @@ namespace TestSort
             {
                 newArray[i] = rand.Next(1, 1000);
             }
-            Console.WriteLine("Here is the unsorted array: ");
+            Console.WriteLine("> Here is the unsorted array: ");
             Console.WriteLine(" ");
-            for (int i = 0; i < array.Length; ++i)
+            for (int i = 0; i < array.Length; ++i) //prints the array in current method
             {
                 Console.Write(array[i] + " ");
             }
@@ -44,8 +41,7 @@ namespace TestSort
         {
             int numberOfSorts = 1;
 
-            Console.WriteLine("Here is the sorted array: ");
-            Console.WriteLine();
+            Console.WriteLine("> Here is the sorted array: ");
             int n = arr.Length;
             // One by one move boundary of unsorted subarray
             for (int i = 0; i < n - 1; i++)
@@ -55,33 +51,30 @@ namespace TestSort
                 for (int j = i + 1; j < n; j++)
                     if (arr[j] < arr[min_idx])
                         min_idx = j;
-                // Swap the found minimum element with the first
-                // element
+                // Swap the found minimum element with the first element
                 int temp = arr[min_idx];
                 arr[min_idx] = arr[i];
                 arr[i] = temp;
                 numberOfSorts++;
             }
-            Console.WriteLine("Number of Swaps: " + numberOfSorts);
+            Console.WriteLine("Total Number of Swaps: " + numberOfSorts);
             Console.WriteLine();
-        }
-        // Prints the sorted array
-        public static void printSorted(int[] arr)
-        {
-            int n = arr.Length;
-            for (int i = 0; i < n; ++i)
+            for (int i = 0; i < n; ++i) //prints the array in current method
+            {
                 Console.Write(arr[i] + " ");
+            }               
             Console.WriteLine();
         }
         // Driver code
-
         public static void Main()
         {
             int numberOfPreformedSorts = 0;
+            int success = 0;
+            int failure = 0;
 
-            do
+            do //loop for program to work
             {
-                Console.WriteLine("-----------------------------------------------------------------------------------------------------");
+                Console.WriteLine("--------------------------------------------------------------------------------"); //Seperate sorts
                 Console.WriteLine("1. Selection Sort"); //Let user input another array
                 Console.WriteLine("2. Exit"); //Exit Program
 
@@ -104,26 +97,28 @@ namespace TestSort
                     }
                     sizeTestArray(arr);
                     SelectionSort(arr);
-                    if (arr == null)
+                    if (arr == null) //checks if program ran correclty
                     {
-                        Console.WriteLine("Failure: ");
+                        failure++;
+                        Console.WriteLine("Succsess: " + success);
+                        Console.WriteLine("Failure: " + failure);
                     }
-                    else
+                    else 
                     {
-                        Console.WriteLine("Succsess: ");
+                        success++;
+                        Console.WriteLine();
+                        Console.WriteLine("Succsess: " + success);
+                        Console.WriteLine("Failure: " + failure);
                     }
-                    printSorted(arr);
-
                     numberOfPreformedSorts++;
-                    Console.WriteLine();
                     Console.WriteLine("Number of Sorts Preformed: " + numberOfPreformedSorts);
 
                 }
                 else if (Console.ReadKey().Key != ConsoleKey.NumPad2) //what happens when 2 is pressed
                 {
-                    Console.WriteLine("Exit");
+                    Console.WriteLine("Exit"); //self documentation, user doesn't see
                 }
-            } while (numberOfPreformedSorts != 4;
+            } while (numberOfPreformedSorts != 4); //program stops after the 4th sort 
         }
     }
 }
